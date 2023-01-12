@@ -1,20 +1,16 @@
+import { nanoid } from "nanoid";
+
 class ContactService {
-  contacts = [
-    { id: 1, name: "John", phone: "066666666" },
-    { id: 2, name: "Jane", phone: "066666666" },
-    { id: 3, name: "Smith", phone: "066666666" },
-    { id: 4, name: "Will", phone: "066666666" },
-  ];
+  contacts = [];
 
   constructor() {}
 
   _findIndex = (contactId) => {
-    return this.contacts.findIndex((contact) => contact.id == contactId);
+    return this.contacts.findIndex((contact) => contact.id === contactId);
   };
 
   _generateId = () => {
-    if (this.contacts.length == 0) return 1;
-    return this.contacts.sort((c1, c2) => -c1.id + c2.id)[0].id + 1;
+    return nanoid();
   };
 
   getAll = () => {
@@ -22,7 +18,7 @@ class ContactService {
   };
 
   findOneById = (idContact) => {
-    const contact = this.contacts.find((contact) => contact.id == idContact);
+    const contact = this.contacts.find((contact) => contact.id === idContact);
     if (!contact) throw new Error("Contact not found !");
   };
 

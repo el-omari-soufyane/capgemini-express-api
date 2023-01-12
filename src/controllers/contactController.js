@@ -36,7 +36,7 @@ const updateContact = (req, res) => {
     const { id } = req.params;
     const { name, phone } = req.body;
     const updatedContact = contactService.updateOne({
-      id: Number(id),
+      id,
       name,
       phone,
     });
