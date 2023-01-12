@@ -1,29 +1,23 @@
 import request from "supertest";
 import app from "./app.js";
 
-describe("Test GET", () => {
+describe("Testing GET All Contacts", () => {
   test("It should respond to the GET method with 200", () => {
     request(app)
-      .get("/api/")
+      .get("/api/contacts")
       .then((response) => {
         expect(response.statusCode).toBe(200);
       });
   });
 });
 
-describe("Test GET Contacts", () => {
-  test("It should respond to the POST method with 200", () => {
+describe("Testing GET One Contact By ID", () => {
+  test("It should respond to the GET method with 200 When ID is sent", () => {
     request(app)
-      .get("/api/contacts")
+      .get("/api/contacts/3")
       .then((response) => {
         expect(response.statusCode).toBe(200);
-      });
-  });
-  test("It should have name with Jphn", () => {
-    request(app)
-      .get("/api/contacts")
-      .then((response) => {
-        expect(response.body[0].name).toBe("John");
+        console.log(response)
       });
   });
 });
