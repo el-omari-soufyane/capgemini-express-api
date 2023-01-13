@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 
 class ContactService {
-  contacts = [];
+  contacts = [{ id: 1, name: "John", phone: "077777777" }];
 
   constructor() {}
 
